@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Crashlytics/Crashlytics.h>
 #import <TwitterKit/TwitterKit.h>
 #import "EbolaDataManager.h"
 #import "OutbreakDatapoint.h"

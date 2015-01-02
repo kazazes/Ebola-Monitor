@@ -12,20 +12,24 @@
 	<dict>
 		<key>3DEBD2C16514339789178CDC71CA5902F3686C48</key>
 		<string>https://github.com/kazazes/iOS-Ebola-Tracker.git</string>
+		<key>F187D5405BDC1974E5469B691B179B73CEB27628</key>
+		<string>github.com:kazazes/Ebola-Monitor.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ios-src/Ebola.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3DEBD2C16514339789178CDC71CA5902F3686C48</key>
+		<string>../../../Ebola</string>
+		<key>F187D5405BDC1974E5469B691B179B73CEB27628</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/kazazes/iOS-Ebola-Tracker.git</string>
+	<string>github.com:kazazes/Ebola-Monitor.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3DEBD2C16514339789178CDC71CA5902F3686C48</string>
+	<string>F187D5405BDC1974E5469B691B179B73CEB27628</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>3DEBD2C16514339789178CDC71CA5902F3686C48</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Ebola</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F187D5405BDC1974E5469B691B179B73CEB27628</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Ebola-Monitor</string>
 		</dict>
 	</array>
 </dict>

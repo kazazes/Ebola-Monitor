@@ -400,7 +400,6 @@
 				D00CB54819E7748A002445DC /* Frameworks */,
 				D00CB54919E7748A002445DC /* Resources */,
 				0308EC7CCA82A87577EB7FBF /* Copy Pods Resources */,
-				D0BFEF3B19FB3408004BB948 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -519,19 +518,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		D0BFEF3B19FB3408004BB948 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Frameworks/Fabric.framework/run e4b155f1f026be5438525e5c57d6acfe1661022e 8834647496aef1012ea8c84bcdfad386bb790c52a95880286cdbb977e74a875a";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -692,7 +678,6 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 					/Users/peter/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/MoPub/AdNetworkSupport/Millennial/SDK",
 				);
 				GCC_PREFIX_HEADER = Ebola/PrefixHeader.pch;
 				INFOPLIST_FILE = Ebola/Info.plist;
@@ -738,7 +723,6 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 					/Users/peter/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/MoPub/AdNetworkSupport/Millennial/SDK",
 				);
 				GCC_PREFIX_HEADER = Ebola/PrefixHeader.pch;
 				INFOPLIST_FILE = Ebola/Info.plist;
