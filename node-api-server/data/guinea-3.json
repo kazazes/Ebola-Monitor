@@ -1,0 +1,141 @@
+[{
+    "cases" : 771,
+    "deaths" : 494,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-08-31T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 543,
+    "deaths" : 394,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-08-16T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 506,
+    "deaths" : 373,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-08-09T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 472,
+    "deaths" : 346,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-07-30T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 427,
+    "deaths" : 319,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-07-23T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 411,
+    "deaths" : 310,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-07-14T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 412,
+    "deaths" : 305,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-07-02T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 398,
+    "deaths" : 264,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-06-17T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 281,
+    "deaths" : 186,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-05-27T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 248,
+    "deaths" : 171,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-05-12T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 226,
+    "deaths" : 149,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-05-01T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 168,
+    "deaths" : 108,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-04-14T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 122,
+    "deaths" : 80,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-03-31T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 49,
+    "deaths" : 29,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-03-22T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}]

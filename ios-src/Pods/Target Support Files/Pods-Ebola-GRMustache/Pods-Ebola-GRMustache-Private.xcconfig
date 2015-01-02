@@ -1,0 +1,5 @@
+#include "Pods-Ebola-GRMustache.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/GRMustache" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CWStatusBarNotification" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/FlatUIKit" "${PODS_ROOT}/Headers/Public/GRMustache" "${PODS_ROOT}/Headers/Public/ISO8601DateFormatter" "${PODS_ROOT}/Headers/Public/JRSwizzle" "${PODS_ROOT}/Headers/Public/MagicalRecord" "${PODS_ROOT}/Headers/Public/Mapbox-iOS-SDK" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/SMCalloutView" "${PODS_ROOT}/Headers/Public/STTwitter" "${PODS_ROOT}/Headers/Public/pop"
+OTHER_LDFLAGS = ${PODS_EBOLA_GRMUSTACHE_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}

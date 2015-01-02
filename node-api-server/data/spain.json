@@ -1,0 +1,11 @@
+[{
+	"cases" : 1,
+    "deaths" : 0,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-10-05T00:00:00.000-00:00"),
+    "latitude" : 40.475440, 
+    "longitude" : -3.695413,
+    "country" : "Spain",
+    "notes" : ""
+}]

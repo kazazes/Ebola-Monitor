@@ -1,0 +1,51 @@
+[{
+    "cases" : 4487,
+    "deaths" : 1429,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-10-30T00:00:00.000-00:00"),
+    "latitude" : 8.3978768,
+    "longitude" : -12.1287783,
+    "country" : "Sierra Leone",
+    "notes" : ""
+}, {
+    "cases" : 4759,
+    "deaths" : 1450,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-11-02T00:00:00.000-00:00"),
+    "latitude" : 8.3978768,
+    "longitude" : -12.1287783,
+    "country" : "Sierra Leone",
+    "notes" : ""
+}, {
+    "cases" : 4821,
+    "deaths" : 1455,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-11-04T00:00:00.000-00:00"),
+    "latitude" : 8.3978768,
+    "longitude" : -12.1287783,
+    "country" : "Sierra Leone",
+    "notes" : ""
+}, {
+    "cases" : 5368,
+    "deaths" : 1498,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-11-09T00:00:00.000-00:00"),
+    "latitude" : 8.3978768,
+    "longitude" : -12.1287783,
+    "country" : "Sierra Leone",
+    "notes" : ""
+}, {
+    "cases" : 5586,
+    "deaths" : 1514,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-11-11T00:00:00.000-00:00"),
+    "latitude" : 8.3978768,
+    "longitude" : -12.1287783,
+    "country" : "Sierra Leone",
+    "notes" : ""
+}]

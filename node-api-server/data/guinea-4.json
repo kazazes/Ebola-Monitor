@@ -1,0 +1,31 @@
+[{
+    "cases" : 2047,
+    "deaths" : 1214,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-11-18T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 2134,
+    "deaths" : 1260,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-11-23T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}, {
+    "cases" : 2123,
+    "deaths" : 1284,
+    "unconfirmed" : 0,
+    "parent_id" : null,
+    "date" : ISODate("2014-11-25T00:00:00.000-00:00"),
+    "latitude" : 11.1239392,
+    "longitude" : -13.6401225,
+    "country" : "Guinea",
+    "notes" : ""
+}]

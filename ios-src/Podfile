@@ -1,0 +1,25 @@
+platform :ios, '8.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'Ebola' do
+
+pod "Mapbox-iOS-SDK"
+pod "ISO8601DateFormatter"
+pod "FlatUIKit"
+pod "MagicalRecord"
+pod "AFNetworking", "~> 2.4.1"
+pod "CWStatusBarNotification", "~> 2.2.2"
+pod "STTwitter"
+pod "Reachability"
+pod "pop"
+
+end
+
+target 'EbolaTests' do
+
+end
+

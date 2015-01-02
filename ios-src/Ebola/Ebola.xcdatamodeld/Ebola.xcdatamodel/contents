@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="OutbreakDatapoint" representedClassName="OutbreakDatapoint" syncable="YES">
+        <attribute name="cases" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="deaths" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="idString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unconfirmed" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="child" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OutbreakDatapoint" inverseName="parent" inverseEntity="OutbreakDatapoint" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OutbreakDatapoint" inverseName="child" inverseEntity="OutbreakDatapoint" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="OutbreakDatapoint" positionX="0" positionY="0" width="128" height="225"/>
+    </elements>
+</model>
