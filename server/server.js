@@ -43,8 +43,8 @@ var httpsOptions = {
 
 app.use('/', router);
 
-https.createServer(httpsOptions, app);
-https.listen(config.TLSPort);
+var secureServer = https.createServer(httpsOptions, app);
+secureServer.listen(config.TLSPort);
 
 console.log('Server opened on port ' + config.TLSPort);
 
