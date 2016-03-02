@@ -1,0 +1,26 @@
+{
+  "name": "zika-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kazazes/Ebola.git"
+  },
+  "author": "Peter Kazazes",
+  "license": "BSD 3 Clause",
+  "bugs": {
+    "url": "https://zikatracker.io"
+  },
+  "homepage": "https://github.com/kazazes/Pandemic",
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "compression": "^1.2.0",
+    "express": "^4.9.7",
+    "memory-cache": "0.0.5",
+    "mongoose": "^3.8.17"
+  }
+}
