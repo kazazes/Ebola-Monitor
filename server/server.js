@@ -28,18 +28,15 @@ router.use(function(req, res, next) {
 	next();
 });
 
-router.route('/v1/datapoints')
+router.route('/api/v1/datapoints')
 	.get(function(req, res) {
 		var data = retrieveOutbreakData();
 		res.set({'content-length' : Buffer.byteLength(JSON.stringify(data))});
 		res.json(data);
 	});
 
-var staticRouter = express.Router();
-staticRouter.route('/', express.static(__dirname + '/static'));
-
-app.use('/', staticRouter);
-app.use('/api', router);
+app.use(express.static('static'));
+app.use('/', router);
 
 var secureServer = https.createServer(httpsOptions, app);
 secureServer.listen(config.TLSPort);
