@@ -35,7 +35,8 @@ router.route('/v1/datapoints')
 		res.json(data);
 	});
 
-var staticRouter = express.Router().route('/', express.static(__dirname + '/static'));
+var staticRouter = express.Router();
+staticRouter.route('/', express.static(__dirname + '/static'));
 
 app.use('/', staticRouter);
 app.use('/api', router);
