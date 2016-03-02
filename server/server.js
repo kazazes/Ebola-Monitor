@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 var config = require('./config.js')
 var cert = read('./certs/zikatracker_io.crt', 'utf8');
 var key = read('./certs/zikatracker_io.key', 'utf8');
-var ca = [read('./certs/DigiCertCA.crt', 'uft8'), read('./certs/TrustedRoot.crt', 'utf8')];
+var ca = [read('./certs/DigiCertCA.crt', 'utf8'), read('./certs/TrustedRoot.crt', 'utf8')];
 
 app.use(bodyParser.urlencoded({
 	extended: true
