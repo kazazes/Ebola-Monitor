@@ -23,7 +23,7 @@
 - (int)percentMortality;
 - (void)saveUserInfo;
 - (int)weeksWorthOfData;
-- (int)deathsForWeekWithIndex:(int)week;
+- (int)casesPerWeekWithIndex:(int)week;
 - (void)requestPushNotificationPrivileges;
 - (NSArray *)getParentOutbreaks;
 

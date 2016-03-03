@@ -131,11 +131,11 @@
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     if ([[OutbreakDatapoint MR_findAll] count] > 0) {
-        int deaths = [[EbolaDataManager sharedEbolaDataManager] deathsForWeekWithIndex:[[NSNumber numberWithInteger:index] intValue]];
-        if (deaths == 0) {
-            deaths = [[EbolaDataManager sharedEbolaDataManager] deathsForWeekWithIndex:[[NSNumber numberWithInteger:index - 1] intValue]];
+        int cases = [[EbolaDataManager sharedEbolaDataManager] casesPerWeekWithIndex:[[NSNumber numberWithInteger:index] intValue]];
+        if (cases == 0) {
+            cases = [[EbolaDataManager sharedEbolaDataManager] casesPerWeekWithIndex:[[NSNumber numberWithInteger:index - 1] intValue]];
         }
-        return deaths;
+        return cases;
     } else {
         return 0;
     }

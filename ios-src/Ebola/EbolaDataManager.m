@@ -77,13 +77,7 @@
                 [a setCases:[d objectForKey:@"cases"]];
                 [a setDeaths:[d objectForKey:@"deaths"]];
                 [a setUnconfirmed:[d objectForKey:@"unconfirmed"]];
-                if ([d objectForKey:@"parent_id"] != (id)[NSNull null])
-                    [a setParentId:[d objectForKey:@"parent_id"]];
             }
-        }
-        
-        for (OutbreakDatapoint *a in [OutbreakDatapoint MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"parentId != nil"]]) {
-                [a setParent:[OutbreakDatapoint MR_findFirstByAttribute:@"idString" withValue:a.parentId]];
         }
         
         self.oldestEntry = [[[[OutbreakDatapoint MR_findAllSortedBy:@"date" ascending:YES] firstObject] date] timeIntervalSince1970];
@@ -93,18 +87,6 @@
         NSLog(@"FAILED TO LOAD. %@", error);
     }];
     [operation start];
-}
-
-- (NSArray *)getParentOutbreaks {
-    NSArray *setParentIds = [OutbreakDatapoint MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"parentId != ''"]];
-    NSMutableArray *parents = [NSMutableArray array];
-    
-    for (OutbreakDatapoint *d in setParentIds) {
-        if (d.parent)
-            [parents addObject:d.parent];
-    }
-    
-    return parents;
 }
 
 - (NSArray *)getLocalizedOutbreaks {
@@ -190,65 +172,28 @@
 }
 
 - (int)totalCases {
-    if ([[OutbreakDatapoint MR_findAll] count] > 0) {
-        
-        NSArray *countries = [[EbolaDataManager sharedEbolaDataManager] countries];
+    NSArray *allCases = [OutbreakDatapoint MR_findAll];
+    if ([allCases count] > 0) {
         int cases = 0;
         
-        for (NSString *d in countries) {
-            
-            NSArray *allInCountry = [OutbreakDatapoint MR_findByAttribute:@"country" withValue:d];
-            allInCountry = [allInCountry sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                OutbreakDatapoint *one = (OutbreakDatapoint *) obj1;
-                OutbreakDatapoint *two = (OutbreakDatapoint *) obj2;
-                
-                if ([one.date timeIntervalSince1970] > [two.date timeIntervalSince1970]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                } else if ([one.date timeIntervalSince1970] < [two.date timeIntervalSince1970]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                } else {
-                    return (NSComparisonResult)NSOrderedSame;
-                }
-            }];
-            
-            cases += [((OutbreakDatapoint *)[allInCountry firstObject]).cases intValue];
+        for (OutbreakDatapoint *d in allCases) {
+            cases += [d.cases intValue];
         }
-        
         return cases;
     }
-    
     return 0;
-    
 }
 
 - (int)totalDeaths {
-    if ([[OutbreakDatapoint MR_findAll] count] > 0) {
+    NSArray *allCases = [OutbreakDatapoint MR_findAll];
+    if ([allCases count] > 0) {
+        int cases = 0;
         
-        NSArray *countries = [[EbolaDataManager sharedEbolaDataManager] countries];
-        int deaths = 0;
-        
-        for (NSString *d in countries) {
-            
-            NSArray *allInCountry = [OutbreakDatapoint MR_findByAttribute:@"country" withValue:d];
-            allInCountry = [allInCountry sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                OutbreakDatapoint *one = (OutbreakDatapoint *) obj1;
-                OutbreakDatapoint *two = (OutbreakDatapoint *) obj2;
-                
-                if ([one.date timeIntervalSince1970] > [two.date timeIntervalSince1970]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                } else if ([one.date timeIntervalSince1970] < [two.date timeIntervalSince1970]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                } else {
-                    return (NSComparisonResult)NSOrderedSame;
-                }
-            }];
-            
-            deaths += [((OutbreakDatapoint *)[allInCountry firstObject]).deaths intValue];
+        for (OutbreakDatapoint *d in allCases) {
+            cases += [d.deaths intValue];
         }
-        
-        return deaths;
+        return cases;
     }
-    
     return 0;
 }
 
@@ -257,19 +202,6 @@
     int cases = [[EbolaDataManager sharedEbolaDataManager] totalCases];
     
     return (int)((double) deaths / (double)cases * 100);
-}
-
-- (NSArray *)countries {
-    NSArray *all = [OutbreakDatapoint MR_findAll];
-    NSMutableArray *countries = [NSMutableArray array];
-    
-    for (OutbreakDatapoint *d in all) {
-        if (![countries containsObject:d.country]) {
-            [countries addObject:d.country];
-        }
-    }
-    
-    return countries;
 }
 
 - (int)weeksWorthOfData {
@@ -281,27 +213,22 @@
     return weeks;
 }
 
-- (int)deathsForWeekWithIndex:(int)week {
-    int deathsInWeek = 0;
-    for (NSString *country in [[EbolaDataManager sharedEbolaDataManager] countries]) {
-        int deathsInCountryWeek = 0;
-        NSArray *sortedDatapoints = [OutbreakDatapoint MR_findAllSortedBy:@"date" ascending:YES withPredicate:[NSPredicate predicateWithFormat:@"country like %@", country]];
-        double weekStart = self.oldestEntry + (week * 60 * 60 * 24 * 7);
-        double weekEnd = weekStart + ((60 * 60 * 24 * 7) - 1);
+- (int)casesPerWeekWithIndex:(int)week {
+    int casesInWeek = 0;
+    NSArray *sortedDatapoints = [OutbreakDatapoint MR_findAllSortedBy:@"date" ascending:YES];
+    double weekStart = self.oldestEntry + (week * 60 * 60 * 24 * 7);
+    double weekEnd = weekStart + ((60 * 60 * 24 * 7) - 1);
         
-        for (OutbreakDatapoint *d in sortedDatapoints) {
-            if ([d.date timeIntervalSince1970] > weekEnd)
-                break;
-            
-            deathsInCountryWeek += [d.deaths intValue] - deathsInCountryWeek;
-        }
-        deathsInWeek += deathsInCountryWeek;
+    for (OutbreakDatapoint *d in sortedDatapoints) {
+        if ([d.date timeIntervalSince1970] > weekEnd)
+            break;
+        casesInWeek += [d.cases intValue];
     }
     
-    if (deathsInWeek > 0) {
-        return deathsInWeek;
-    } else if (deathsInWeek == 0 && week > 0)
-        return [self deathsForWeekWithIndex:week - 1];
+    if (casesInWeek > 0) {
+        return casesInWeek;
+    } else if (casesInWeek == 0 && week > 0)
+        return [self casesPerWeekWithIndex:week - 1];
     else
         return 0;
 }

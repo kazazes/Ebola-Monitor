@@ -67,7 +67,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    if (abs([self.lastUserDataSave timeIntervalSinceNow]) > 60 * 5) {
+    if (fabs([self.lastUserDataSave timeIntervalSinceNow]) > 60 * 5) {
         self.lastUserDataSave = [NSDate date];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationsUpdated" object:nil userInfo:[NSDictionary dictionaryWithObject:locations forKey:@"locations"]];

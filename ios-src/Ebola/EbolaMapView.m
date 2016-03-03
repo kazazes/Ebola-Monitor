@@ -22,12 +22,12 @@ const float COORDINATE_RANDOM_MODULUS = 0.0004f;
 @implementation EbolaMapView
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 - (id)initWithFrame:(CGRect)frame andTilesource:(id<RMTileSource>)newTilesource {
     if (self = [super initWithFrame:frame andTilesource:newTilesource]) {
@@ -49,7 +49,8 @@ const float COORDINATE_RANDOM_MODULUS = 0.0004f;
 
 - (void)updatedDatapoints:(NSNotification *)notification {
     __block NSMutableArray *annotationsArray = [NSMutableArray array];
-    for (LocalizedOutbreak *l in [[EbolaDataManager sharedEbolaDataManager] getLocalizedOutbreaks]) {
+    NSArray *localizedData = [[EbolaDataManager sharedEbolaDataManager] getLocalizedOutbreaks];
+    for (LocalizedOutbreak *l in localizedData) {
         // add randomized data at mass points
         int j = 0;
         int casesAdded = 0;
@@ -61,34 +62,19 @@ const float COORDINATE_RANDOM_MODULUS = 0.0004f;
             float yMod = rand * COORDINATE_RANDOM_MODULUS * j / 3;;
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(l.coordinate.latitude + xMod, l.coordinate.longitude + yMod);
             RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self coordinate:coord andTitle:l.country];
-            if (j < [l.deaths intValue] && deathsAdded <= 25) {
+            if (j < [l.deaths intValue]) {
                 annotation.annotationType = @"death";
                 deathsAdded++;
-                            [annotationsArray addObject:annotation];
+                [annotationsArray addObject:annotation];
             } else if (j < [l.cases intValue] - [l.deaths intValue] && casesAdded <= 25) {
                 annotation.annotationType = @"case";
-                            [annotationsArray addObject:annotation];
+                [annotationsArray addObject:annotation];
             }
             
             j++;
         }
     }
     
-    NSArray *parents = [[EbolaDataManager sharedEbolaDataManager] getParentOutbreaks];
-    for (OutbreakDatapoint *p in parents) {
-        if (p.child) {
-            for (OutbreakDatapoint *c in p.child) {
-                CLLocation *parentLocation = [p location];
-                CLLocation *childLocation = [c location];
-                RMPolylineAnnotation *lineAnnotation = [[RMPolylineAnnotation alloc] initWithMapView:self points:[NSArray arrayWithObjects:parentLocation, childLocation, nil]];
-                UIColor *lineColor = [UIColor alizarinColor];
-                [lineAnnotation setLineColor:lineColor];
-                [lineAnnotation.layer setOpacity:0.5f];
-                [lineAnnotation setLineWidth:2.5f];
-                [annotationsArray addObject:lineAnnotation];
-            }
-        }
-    }
     
     [self removeAllAnnotations];
     [self addAnnotations:annotationsArray];
