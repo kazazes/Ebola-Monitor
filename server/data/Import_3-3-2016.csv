@@ -1,4 +1,4 @@
-date,longitude,latitude,country,cases,deaths,unconfirmed,notes
+date,latitude,longitude,country,cases,deaths,unconfirmed,notes
 11/1/15,10.490541,-66.895879,Venezuela,4,0,0,no notes
 2/1/16,10.509935,-66.898801,Venezuela,319,0,0,no notes
 1/1/16,21.302411,-157.851137,United States,4,0,0,no notes
