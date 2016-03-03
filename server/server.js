@@ -63,8 +63,9 @@ function retrieveOutbreakData(res) {
 }
 
 function retrieveFreshOutbreakData(res) {
-	outbreakDatapoint.find(function(err, timeInterval) {
-		cache.put('datapoints', timeInterval, 60000);
+	outbreakDatapoint.find(function(err, data) {
+		console.log(data);
+		cache.put('datapoints', data, 60000);
 		if (arguments.length == 1) {
 			res.json(cache.get('datapoints'));
 		} else {
