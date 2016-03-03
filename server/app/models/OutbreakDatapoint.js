@@ -2,8 +2,6 @@ var mongoose	    = require('mongoose');
 var Schema			= mongoose.Schema;
 
 var OutbreakDatapointSchema	= new Schema({
-	_id: String,
-	parent_id: String,
 	date: Date,
 	latitude: Number,
 	longitude: Number,
