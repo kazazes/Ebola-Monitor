@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://' + config.mongo.user + ':' + config.mongo.password + '@localhost:' + config.mongo.PORT + '/' + config.mongo.dbName);
+mongoose.connect('mongodb://localhost:' + config.mongo.PORT + '/' + config.mongo.dbName);
 
 // catch-all middleware
 router.use(function(req, res, next) {
