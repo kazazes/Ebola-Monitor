@@ -6,12 +6,13 @@
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
 //
 
+@import Mapbox;
+
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "EbolaMapView.h"
 #import "UIImage+Overlay.h"
 #import <FlatUIKit/UIColor+FlatUI.h>
-#import <Mapbox-iOS-SDK/Mapbox.h>
 #import <QuartzCore/QuartzCore.h>
 #import "CircleView.h"
 #import <POP/POP.h>

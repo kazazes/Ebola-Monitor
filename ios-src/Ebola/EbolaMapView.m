@@ -11,8 +11,9 @@
 #import "EbolaDataManager.h"
 #import "UIImage+Overlay.h"
 #import "UIImage+Extensions.h"
+#import "OutbreakAnnotation.h"
 
-const float COORDINATE_RANDOM_MODULUS = 0.0004f;
+const float COORDINATE_RANDOM_MODULUS = 0.0006f;
 
 @interface EbolaMapView ()
 
@@ -29,9 +30,10 @@ const float COORDINATE_RANDOM_MODULUS = 0.0004f;
  }
  */
 
-- (id)initWithFrame:(CGRect)frame andTilesource:(id<RMTileSource>)newTilesource {
-    if (self = [super initWithFrame:frame andTilesource:newTilesource]) {
-        self.lastMapMove = [NSDate date];
+
+
+- (id)initWithFrame:(CGRect)frame styleURL:(nullable NSURL *)styleURL {
+    if (self = [super initWithFrame:frame styleURL:styleURL]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedDatapoints:) name:@"UpdatedDatapoints" object:nil];
     }
     
@@ -53,59 +55,39 @@ const float COORDINATE_RANDOM_MODULUS = 0.0004f;
     for (LocalizedOutbreak *l in localizedData) {
         // add randomized data at mass points
         int j = 0;
-        int casesAdded = 0;
         int deathsAdded = 0;
-        while (j < [l.cases intValue] && j <= 50) {
+        while (j < [l.cases intValue] - [l.deaths intValue]) {
             int rand = arc4random_uniform(100) - 50;
             float xMod = rand * COORDINATE_RANDOM_MODULUS * j / 3;
             rand = arc4random_uniform(100) - 50;
             float yMod = rand * COORDINATE_RANDOM_MODULUS * j / 3;;
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(l.coordinate.latitude + xMod, l.coordinate.longitude + yMod);
-            RMAnnotation *annotation = [[RMAnnotation alloc] initWithMapView:self coordinate:coord andTitle:l.country];
+            OutbreakAnnotation *ann = [[OutbreakAnnotation alloc] init];
             if (j < [l.deaths intValue]) {
-                annotation.annotationType = @"death";
+                [ann setIsDeath:TRUE];
                 deathsAdded++;
-                [annotationsArray addObject:annotation];
-            } else if (j < [l.cases intValue] - [l.deaths intValue] && casesAdded <= 25) {
-                annotation.annotationType = @"case";
-                [annotationsArray addObject:annotation];
             }
             
+            [ann setCoordinate:coord];
+            [annotationsArray addObject:ann];
             j++;
         }
     }
     
     
-    [self removeAllAnnotations];
+    [self removeAnnotations:self.annotations];
     [self addAnnotations:annotationsArray];
 }
 
-
-
-- (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation {
-    if (annotation.isUserLocationAnnotation)
-        return nil;
-    
-    UIImage *annotationImage;
-    if ([annotation.annotationType isEqualToString:@"death"]) {
-        annotationImage = [UIImage imageNamed:@"Skull"];
-    } else if ([annotation.annotationType isEqualToString:@"case"]) {
-        annotationImage = [UIImage imageNamed:@"Biohazard"];
-    }
-    
-    RMMarker *marker = [[RMMarker alloc] initWithUIImage:annotationImage];
-    
-    return marker;
+- (MGLAnnotationImage *) mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
+    if ([(OutbreakAnnotation *) annotation isDeath])
+        return [MGLAnnotationImage annotationImageWithImage:[UIImage imageNamed:@"Skull"] reuseIdentifier:@"death"];
+    else
+        return [MGLAnnotationImage annotationImageWithImage:[UIImage imageNamed:@"Biohazard"] reuseIdentifier:@"case"];
 }
 
-- (void)afterMapMove:(RMMapView *)map byUser:(BOOL)wasUserAction {
-    if (wasUserAction)
-        self.lastMapMove = [NSDate date];
-}
-
-- (void)afterMapZoom:(RMMapView *)map byUser:(BOOL)wasUserAction {
-    if (wasUserAction)
-        self.lastMapMove = [NSDate date];
+- (void) mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    self.lastMapMove = [NSDate date];
 }
 
 @end

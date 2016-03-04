@@ -199,7 +199,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [self.mapView removeAllAnnotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     [[EbolaDataManager sharedEbolaDataManager] refreshOutbreakDatapoints];
 }
 
@@ -214,17 +214,16 @@
 #pragma mark - view setup
 
 - (void)setupMap {
-    RMMapboxSource *mapSource = [[RMMapboxSource alloc] initWithMapID:@"kazazes.jnjm6088"];
     CGRect mapFrame;
     
     mapFrame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
-    self.mapView = [[EbolaMapView alloc] initWithFrame:mapFrame andTilesource:mapSource];
+    self.mapView = [[EbolaMapView alloc] initWithFrame:mapFrame styleURL:nil];
     self.mapView.layer.cornerRadius = 0;
     
     self.mapView.delegate = self.mapView;
     [self.scrollView addSubview:self.mapView];
     
-    [self.mapView setZoom:5.0f];
+    [self.mapView setZoomLevel:5.0f];
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(7.654857, -10.817015)];
     
     self.mapView.clipsToBounds = YES;
@@ -439,7 +438,7 @@
             if (distance > 0 && distance / METERS_IN_MILE < 300) {
                 [self centerInfectionAndLocationBoundingView];
             } else {
-                [self.mapView setZoom:10 atCoordinate:CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude) animated:YES];
+                [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude) zoomLevel:10 animated:YES];
             }
         }
     }
@@ -470,12 +469,12 @@
                 
                 CLLocationCoordinate2D southWest = CLLocationCoordinate2DMake(minLat, minLong);
                 CLLocationCoordinate2D northEast = CLLocationCoordinate2DMake(maxLat, maxLong);
+                MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(southWest, northEast);
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.mapView zoomWithLatitudeLongitudeBoundsSouthWest:southWest northEast:northEast animated:NO];
-                    [self.mapView setZoom:self.mapView.zoom - 1 animated:NO];
+                    [self.mapView setVisibleCoordinateBounds:bounds animated:YES];
+                    [self.mapView setZoomLevel:self.mapView.zoomLevel - 1 animated:NO];
                 });
-                
-                
             }
         }
     }

@@ -32,7 +32,7 @@
     self.lineGraph.colorBottom = [UIColor alizarinColor];
     self.lineGraph.colorPoint = [UIColor pomegranateColor];
     self.lineGraph.widthLine = 1.5f;
-//    self.lineGraph.autoScaleYAxis = NO;
+    //    self.lineGraph.autoScaleYAxis = NO;
     
     self.tweetTableView.estimatedRowHeight = 150;
     self.tweetTableView.rowHeight = UITableViewAutomaticDimension;
@@ -198,40 +198,48 @@
 - (void)startTwitterStream {
     self.twitter = nil;
     self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
+    [[Twitter sharedInstance] logInGuestWithCompletion:nil];
+    
     [self.twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
         NSLog(@"-- Account: %@", username);
-        self.streamRequest = [self.twitter postStatusesFilterUserIDs:nil
-                                keywordsToTrack:@[@"Ebola"]
-                          locationBoundingBoxes:nil
-                                      delimited:nil
-                                  stallWarnings:nil
-                                  progressBlock:^(id response) {
-                                      if (fabs([self.lastTweetShown timeIntervalSinceNow]) > 1.5 || [[response objectForKey:@"screen_name"] isEqualToString:username]) {
-                                          if ([response isKindOfClass:[NSDictionary class]] == NO) {
-                                              NSLog(@"Invalid tweet (class %@): %@", [response class], response);
-                                              return;
-                                          }
-                                          [[Twitter sharedInstance] logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
-                                              [[[Twitter sharedInstance] APIClient] loadTweetWithID:[response objectForKey:@"id_str"] completion:^(TWTRTweet *tweet, NSError *error) {
-                                                  if (tweet) {
-                                                      if (![self.liveSwitch isEnabled]) {
-                                                          [self.liveSwitch setEnabled:YES];
-                                                      }
-                                                      [self.tweetTableView beginUpdates];
-                                                      [self insertTweetIntoTweets:tweet];
-                                                      [self.tweetTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-                                                      if ([self.tweetTableView numberOfRowsInSection:0] > 9)
-                                                          [self.tweetTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:9 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-                                                      [self.tweetTableView endUpdates];
-                                                  }
-                                              }];
-                                          }];
-                                          self.lastTweetShown = [NSDate date];
-                                      }
-                                  } stallWarningBlock:nil errorBlock:^(NSError *error) {
-                                      NSLog(@"Stream error: %@", error);
-                                      [self startTwitterStream];
-                                  }];
+        self.streamRequest = [self.twitter postStatusesFilterKeyword:@"zika" tweetBlock:^(NSDictionary *dict) {
+            if (fabs([self.lastTweetShown timeIntervalSinceNow]) > 1.5 || [[dict objectForKey:@"screen_name"] isEqualToString:username]) {
+                if ([dict isKindOfClass:[NSDictionary class]] == NO) {
+                    NSLog(@"Invalid tweet (class %@): %@", [dict class], dict);
+                    return;
+                }
+                
+                [[[Twitter sharedInstance] APIClient] loadTweetWithID:[dict objectForKey:@"id_str"] completion:^(TWTRTweet *tweet, NSError *error) {
+                    if (tweet) {
+                        if (![self.liveSwitch isEnabled]) {
+                            [self.liveSwitch setEnabled:YES];
+                        }
+                        
+                        [self.tweetTableView beginUpdates];
+                        [self insertTweetIntoTweets:tweet];
+                        [self.tweetTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                        if ([self.tweetTableView numberOfRowsInSection:0] > 9)
+                            [self.tweetTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:9 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                        [self.tweetTableView endUpdates];
+                        self.lastTweetShown  = [NSDate date];
+                    }
+                }];
+            }
+        } errorBlock:^(NSError *error) {
+            [self.liveSwitch setEnabled:YES];
+            [self.liveSwitch setOn:NO animated:YES];
+            NSLog(@"-- %@", [error localizedDescription]);
+            if([[error domain] isEqualToString:NSURLErrorDomain] && [error code] == NSURLErrorNetworkConnectionLost) {
+                NSLog(@"Stream connection lost, attempting to restart");
+                [self startTwitterStream];
+            } else if ([error code] == 2) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"TwitterAccountAccessDenied" object:nil];
+            } else if ([error code] == 0) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"TwitterAccountError" object:nil];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"GenericTwitterError" object:nil];
+            }
+        }];
     } errorBlock:^(NSError *error) {
         [self.liveSwitch setEnabled:YES];
         [self.liveSwitch setOn:NO animated:YES];
@@ -248,6 +256,7 @@
         }
     }];
 }
+
 
 - (void)insertTweetIntoTweets:(TWTRTweet *)tweet {
     [self.tweetTableView beginUpdates];
@@ -267,9 +276,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TWTRTweetTableViewCell *cell = (TWTRTweetTableViewCell *) [self.tweetTableView dequeueReusableCellWithIdentifier:@"TweetTableCell" forIndexPath:indexPath];
     [cell configureWithTweet:[self.tweets objectAtIndex:[self.tweets count] - 1 - indexPath.row]];
-        cell.tweetView.backgroundColor = [UIColor cloudsColor];
-        cell.tweetView.primaryTextColor = [UIColor nephritisColor];
-
+    cell.tweetView.backgroundColor = [UIColor cloudsColor];
+    cell.tweetView.primaryTextColor = [UIColor nephritisColor];
+    
     return cell;
 }
 

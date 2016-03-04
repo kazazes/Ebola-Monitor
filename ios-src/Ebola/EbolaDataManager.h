@@ -25,7 +25,6 @@
 - (int)weeksWorthOfData;
 - (int)casesPerWeekWithIndex:(int)week;
 - (void)requestPushNotificationPrivileges;
-- (NSArray *)getParentOutbreaks;
 
 @property (nonatomic, strong) NSString *deviceToken;
 

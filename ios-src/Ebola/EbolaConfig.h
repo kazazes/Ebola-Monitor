@@ -9,7 +9,7 @@
 #ifndef Ebola_EbolaConfig_h
 #define Ebola_EbolaConfig_h
 
-#define BASE_URL @"http://ebolamonitor.io:9000/api/v1"
+#define BASE_URL @"https://zikatracker.io:8443/api/v1"
 #define METERS_IN_MILE 1609.34f
 
 #endif

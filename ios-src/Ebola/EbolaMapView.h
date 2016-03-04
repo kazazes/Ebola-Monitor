@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
 //
 
-#import <Mapbox-iOS-SDK/Mapbox.h>
+@import Mapbox;
 
-@interface EbolaMapView : RMMapView <RMMapViewDelegate>
+@interface EbolaMapView : MGLMapView <MGLMapViewDelegate>
 
-@property (nonatomic, strong) NSDate *lastMapMove;
+@property NSDate *lastMapMove;
 
 @end

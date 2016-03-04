@@ -15,6 +15,6 @@
 #import "UIView+Glow.h"
 #import <FlatUIKit/UIColor+FlatUI.h>
 #define MR_SHORTHAND
-#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <MagicalRecord/MagicalRecord.h>
 
 #endif
