@@ -11,6 +11,9 @@
 #import "EbolaDataManager.h"
 #import "OutbreakDatapoint.h"
 #import <Reachability/Reachability.h>
+#import "EbolaConfig.h"
+
+@import Mapbox;
 
 @interface AppDelegate ()
 
@@ -35,6 +38,8 @@
     if ([UIApplication sharedApplication].applicationIconBadgeNumber > 0) {
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     }
+    
+    [MGLAccountManager setAccessToken:MAPBOX_TOKEN];
     
     return YES;
 }

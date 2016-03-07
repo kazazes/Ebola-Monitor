@@ -14,10 +14,12 @@ xcuserdata
 DerivedData
 *.xcuserstate
 
-Frameworks/
+ios-src/Frameworks/
 Podfile.lock
-Pods/
+ios-src/Pods/
 
 node_modules/
 
 *.out
+
+ios-src/Ebola/EbolaConfig.h

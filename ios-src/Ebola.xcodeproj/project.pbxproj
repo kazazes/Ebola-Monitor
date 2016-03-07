@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DAE38508BFDBBB542D98D71 /* libPods-Ebola.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 169D85C7335A167E990A4E14 /* libPods-Ebola.a */; };
+		3728F560CB60A79E5AAF6D5B /* libPods-Ebola.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1CF24528FB23B41798E373 /* libPods-Ebola.a */; };
+		4E588C3D1C8A0574000BBF01 /* OutbreakAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E588C3C1C8A0574000BBF01 /* OutbreakAnnotation.m */; };
 		D00CB55119E7748A002445DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CB55019E7748A002445DC /* main.m */; };
 		D00CB55419E7748B002445DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CB55319E7748B002445DC /* AppDelegate.m */; };
 		D00CB55719E7748B002445DC /* PrimaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CB55619E7748B002445DC /* PrimaryViewController.m */; };
@@ -50,8 +51,6 @@
 		D079759D1A089EC600C0D232 /* OutbreakDatapoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D079759C1A089EC600C0D232 /* OutbreakDatapoint.m */; };
 		D07975A01A08D0E600C0D232 /* LocalizedOutbreak.m in Sources */ = {isa = PBXBuildFile; fileRef = D079759F1A08D0E500C0D232 /* LocalizedOutbreak.m */; };
 		D0897B2F1A15E8CD00AE0F7E /* NoConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0897B2E1A15E8CD00AE0F7E /* NoConnectionView.xib */; };
-		D09C63B419FC14F2003C2BCB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D09C63B319FC14F2003C2BCB /* libsqlite3.dylib */; };
-		D09C63B619FC14FD003C2BCB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D09C63B519FC14FD003C2BCB /* libz.dylib */; };
 		D0A2A0A91A116441006DFB92 /* EbolaLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A2A0A81A116441006DFB92 /* EbolaLocationManager.m */; };
 		D0A7B2A31A154FCB00FCE9A8 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A7B29E1A154FCB00FCE9A8 /* BEMCircle.m */; };
 		D0A7B2A41A154FCB00FCE9A8 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A7B2A01A154FCB00FCE9A8 /* BEMLine.m */; };
@@ -71,9 +70,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C46AFCD75C66F4561F9758B /* Pods-Ebola.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ebola.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ebola/Pods-Ebola.debug.xcconfig"; sourceTree = "<group>"; };
-		169D85C7335A167E990A4E14 /* libPods-Ebola.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ebola.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		449D6882E646FA338515765D /* Pods-Ebola.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ebola.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ebola/Pods-Ebola.release.xcconfig"; sourceTree = "<group>"; };
+		4E588C3B1C8A0574000BBF01 /* OutbreakAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutbreakAnnotation.h; sourceTree = "<group>"; };
+		4E588C3C1C8A0574000BBF01 /* OutbreakAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutbreakAnnotation.m; sourceTree = "<group>"; };
+		6ED33EF5D3E4F029630EE8CF /* Pods-Ebola.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ebola.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ebola/Pods-Ebola.debug.xcconfig"; sourceTree = "<group>"; };
+		80FCE4875D27979E1DAC73C8 /* Pods-Ebola.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ebola.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ebola/Pods-Ebola.release.xcconfig"; sourceTree = "<group>"; };
+		CF1CF24528FB23B41798E373 /* libPods-Ebola.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ebola.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00CB54B19E7748A002445DC /* Ebola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ebola.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00CB54F19E7748A002445DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D00CB55019E7748A002445DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -134,8 +135,6 @@
 		D079759E1A08D0E500C0D232 /* LocalizedOutbreak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedOutbreak.h; sourceTree = "<group>"; };
 		D079759F1A08D0E500C0D232 /* LocalizedOutbreak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedOutbreak.m; sourceTree = "<group>"; };
 		D0897B2E1A15E8CD00AE0F7E /* NoConnectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoConnectionView.xib; sourceTree = "<group>"; };
-		D09C63B319FC14F2003C2BCB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		D09C63B519FC14FD003C2BCB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D0A2A0A71A116441006DFB92 /* EbolaLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EbolaLocationManager.h; sourceTree = "<group>"; };
 		D0A2A0A81A116441006DFB92 /* EbolaLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EbolaLocationManager.m; sourceTree = "<group>"; };
 		D0A7B29D1A154FCB00FCE9A8 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
@@ -175,10 +174,8 @@
 				D023EB8A1A0DD37300ABBC76 /* AudioToolbox.framework in Frameworks */,
 				D07975941A06020200C0D232 /* QuartzCore.framework in Frameworks */,
 				D0343A831A059C04001D4CF0 /* CoreData.framework in Frameworks */,
-				D09C63B619FC14FD003C2BCB /* libz.dylib in Frameworks */,
-				D09C63B419FC14F2003C2BCB /* libsqlite3.dylib in Frameworks */,
-				6DAE38508BFDBBB542D98D71 /* libPods-Ebola.a in Frameworks */,
 				D0420C771A1AF5A30044099D /* TwitterKit.framework in Frameworks */,
+				3728F560CB60A79E5AAF6D5B /* libPods-Ebola.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,21 +213,28 @@
 				D023EB891A0DD37300ABBC76 /* AudioToolbox.framework */,
 				D07975931A06020200C0D232 /* QuartzCore.framework */,
 				D0343A821A059C04001D4CF0 /* CoreData.framework */,
-				D09C63B519FC14FD003C2BCB /* libz.dylib */,
-				D09C63B319FC14F2003C2BCB /* libsqlite3.dylib */,
-				169D85C7335A167E990A4E14 /* libPods-Ebola.a */,
+				CF1CF24528FB23B41798E373 /* libPods-Ebola.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		55389B3387ABE04A40D43485 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6ED33EF5D3E4F029630EE8CF /* Pods-Ebola.debug.xcconfig */,
+				80FCE4875D27979E1DAC73C8 /* Pods-Ebola.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D00CB54219E7748A002445DC = {
 			isa = PBXGroup;
 			children = (
-				D00CB54D19E7748A002445DC /* Ebola */,
+				D00CB54D19E7748A002445DC /* Outbreak */,
 				D00CB56719E7748B002445DC /* EbolaTests */,
 				D00CB54C19E7748A002445DC /* Products */,
-				DA7141F6622E7D7783F566A5 /* Pods */,
 				4C83E446AADAFD1021C04B9D /* Frameworks */,
+				55389B3387ABE04A40D43485 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,7 +247,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D00CB54D19E7748A002445DC /* Ebola */ = {
+		D00CB54D19E7748A002445DC /* Outbreak */ = {
 			isa = PBXGroup;
 			children = (
 				D0EFF3B91A05AC4200944E95 /* EbolaConfig.h */,
@@ -258,6 +262,7 @@
 				D0343A801A059842001D4CF0 /* Visual Assets */,
 				D00CB54E19E7748A002445DC /* Supporting Files */,
 			);
+			name = Outbreak;
 			path = Ebola;
 			sourceTree = "<group>";
 		};
@@ -291,6 +296,8 @@
 		D0343A7E1A059822001D4CF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4E588C3B1C8A0574000BBF01 /* OutbreakAnnotation.h */,
+				4E588C3C1C8A0574000BBF01 /* OutbreakAnnotation.m */,
 				D0897B2E1A15E8CD00AE0F7E /* NoConnectionView.xib */,
 				D04B4CBE1A155FC8008401EB /* CBZSplashView */,
 				D042C9A41A13E9A700B43351 /* BEMSimpleLineGraph */,
@@ -379,15 +386,6 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
-		DA7141F6622E7D7783F566A5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0C46AFCD75C66F4561F9758B /* Pods-Ebola.debug.xcconfig */,
-				449D6882E646FA338515765D /* Pods-Ebola.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -395,11 +393,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D00CB56E19E7748B002445DC /* Build configuration list for PBXNativeTarget "Ebola" */;
 			buildPhases = (
-				C1AA86F98CD6FFE90759BDD2 /* Check Pods Manifest.lock */,
+				2B13709F7B7B19FFBA5B9F61 /* Check Pods Manifest.lock */,
 				D00CB54719E7748A002445DC /* Sources */,
 				D00CB54819E7748A002445DC /* Frameworks */,
 				D00CB54919E7748A002445DC /* Resources */,
-				0308EC7CCA82A87577EB7FBF /* Copy Pods Resources */,
+				6087B0CA26576E120FE05DD9 /* Embed Pods Frameworks */,
+				72ACDFAEB46819EC876DD109 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -434,11 +433,12 @@
 		D00CB54319E7748A002445DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Peter Kazazes";
 				TargetAttributes = {
 					D00CB54A19E7748A002445DC = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = G69P92F3KV;
 					};
 					D00CB56319E7748B002445DC = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -489,22 +489,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0308EC7CCA82A87577EB7FBF /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ebola/Pods-Ebola-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1AA86F98CD6FFE90759BDD2 /* Check Pods Manifest.lock */ = {
+		2B13709F7B7B19FFBA5B9F61 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -519,6 +504,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		6087B0CA26576E120FE05DD9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ebola/Pods-Ebola-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72ACDFAEB46819EC876DD109 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ebola/Pods-Ebola-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -531,6 +546,7 @@
 				D0A2A0A91A116441006DFB92 /* EbolaLocationManager.m in Sources */,
 				D0329F3E1A033B640044A4CE /* EbolaMapView.m in Sources */,
 				D04B4CBD1A155E55008401EB /* UIBezierPath+Shapes.m in Sources */,
+				4E588C3D1C8A0574000BBF01 /* OutbreakAnnotation.m in Sources */,
 				D07975971A06062400C0D232 /* CircleView.m in Sources */,
 				D04B4CC61A155FC8008401EB /* CBZSplashView.m in Sources */,
 				D0A7B2A31A154FCB00FCE9A8 /* BEMCircle.m in Sources */,
@@ -607,7 +623,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -622,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -649,6 +667,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -658,7 +677,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -668,31 +687,23 @@
 		};
 		D00CB56F19E7748B002445DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C46AFCD75C66F4561F9758B /* Pods-Ebola.debug.xcconfig */;
+			baseConfigurationReference = 6ED33EF5D3E4F029630EE8CF /* Pods-Ebola.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Peter Kazazes (96WEYC842Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
-					/Users/peter/Documents/FacebookSDK,
 				);
 				GCC_PREFIX_HEADER = Ebola/PrefixHeader.pch;
 				INFOPLIST_FILE = Ebola/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
-					"-l\"Pods-Ebola-FMDB\"",
-					"-l\"Pods-Ebola-GRMustache\"",
-					"-l\"Pods-Ebola-JRSwizzle\"",
-					"-l\"Pods-Ebola-Mapbox-iOS-SDK\"",
-					"-l\"Pods-Ebola-SMCalloutView\"",
-					"-l\"Proj4\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -705,39 +716,32 @@
 					"\"UIKit\"",
 					"$(inherited)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazazes.zikatracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0f2f613f-e4b4-4027-a5d8-657d267a0cde";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D00CB57019E7748B002445DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 449D6882E646FA338515765D /* Pods-Ebola.release.xcconfig */;
+			baseConfigurationReference = 80FCE4875D27979E1DAC73C8 /* Pods-Ebola.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Peter Kazazes (G69P92F3KV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
-					/Users/peter/Documents/FacebookSDK,
 				);
 				GCC_PREFIX_HEADER = Ebola/PrefixHeader.pch;
 				INFOPLIST_FILE = Ebola/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
-					"-l\"Pods-Ebola-FMDB\"",
-					"-l\"Pods-Ebola-GRMustache\"",
-					"-l\"Pods-Ebola-JRSwizzle\"",
-					"-l\"Pods-Ebola-Mapbox-iOS-SDK\"",
-					"-l\"Pods-Ebola-SMCalloutView\"",
-					"-l\"Proj4\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -750,8 +754,9 @@
 					"\"UIKit\"",
 					"$(inherited)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazazes.zikatracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0db4c6cd-3061-4613-8fb7-2019ca0cdc4c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -770,6 +775,7 @@
 				);
 				INFOPLIST_FILE = EbolaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peterkazazes.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ebola.app/Ebola";
 			};
@@ -785,6 +791,7 @@
 				);
 				INFOPLIST_FILE = EbolaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peterkazazes.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ebola.app/Ebola";
 			};

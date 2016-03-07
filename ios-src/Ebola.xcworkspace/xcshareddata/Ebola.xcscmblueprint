@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F187D5405BDC1974E5469B691B179B73CEB27628",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F187D5405BDC1974E5469B691B179B73CEB27628" : 0,
+    "3DEBD2C16514339789178CDC71CA5902F3686C48" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "95AA5274-DE4A-479A-812F-809701C81077",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F187D5405BDC1974E5469B691B179B73CEB27628" : "Ebola-Monitor",
+    "3DEBD2C16514339789178CDC71CA5902F3686C48" : "Ebola"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Ebola",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios-src\/Ebola.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kazazes\/iOS-Ebola-Tracker.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3DEBD2C16514339789178CDC71CA5902F3686C48"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:kazazes\/Ebola-Monitor.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F187D5405BDC1974E5469B691B179B73CEB27628"
+    }
+  ]
+}

@@ -11,6 +11,8 @@
 
 @implementation OutbreakAnnotation
 
+@synthesize coordinate;
+
 - (id) init {
     self = [super init];
     if (self) {
@@ -20,8 +22,8 @@
     return self;
 }
 
-- (void) setCoordinate:(CLLocationCoordinate2D)coordinate {
-    self.coordinate = coordinate;
+- (void) setCoordinate:(CLLocationCoordinate2D)coord {
+    coordinate = coord;
 }
 
 @end

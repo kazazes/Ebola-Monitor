@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+
+<Parameters>
+  <Parameter name="center">-76.9482,24.8765,6</Parameter>
+  <Parameter name="format">pbf</Parameter>
+  <Parameter name="json"><![CDATA[{"vector_layers":[{"id":"Import_3-3-2016","description":"Zika, March 3","fields":{"date":"String","latitude":"Number","longitude":"Number","country":"String","cases":"Number","deaths":"Number","unconfirmed":"Number","notes":"String"}}]}]]></Parameter>
+  <Parameter name="maxzoom">6</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="name"><![CDATA[Zika 3-3]]></Parameter>
+</Parameters>
+
+
+<Layer name="Import_3-3-2016"
+  buffer-size="0"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/pk/Dropbox/Zika monitoring/CSVs/Import_3-3-2016.csv]]></Parameter>
+       <Parameter name="type"><![CDATA[csv]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

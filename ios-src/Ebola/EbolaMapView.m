@@ -13,7 +13,7 @@
 #import "UIImage+Extensions.h"
 #import "OutbreakAnnotation.h"
 
-const float COORDINATE_RANDOM_MODULUS = 0.0006f;
+const float COORDINATE_RANDOM_MODULUS = 0.0004f;
 
 @interface EbolaMapView ()
 
@@ -68,8 +68,10 @@ const float COORDINATE_RANDOM_MODULUS = 0.0006f;
                 deathsAdded++;
             }
             
-            [ann setCoordinate:coord];
-            [annotationsArray addObject:ann];
+            if (!isnan(coord.latitude) && !isnan(coord.latitude)) {
+                [ann setCoordinate:coord];
+//                [annotationsArray addObject:ann];
+            }
             j++;
         }
     }

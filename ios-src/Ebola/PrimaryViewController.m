@@ -12,6 +12,7 @@
 #import <Social/Social.h>
 #import <STTwitter/STTwitter.h>
 #import <Reachability/Reachability.h>
+#import "EbolaConfig.h"
 
 @interface PrimaryViewController ()
 
@@ -217,14 +218,14 @@
     CGRect mapFrame;
     
     mapFrame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
-    self.mapView = [[EbolaMapView alloc] initWithFrame:mapFrame styleURL:nil];
+    self.mapView = [[EbolaMapView alloc] initWithFrame:mapFrame styleURL:[NSURL URLWithString:MAPBOX_STYLE]];
     self.mapView.layer.cornerRadius = 0;
     
     self.mapView.delegate = self.mapView;
     [self.scrollView addSubview:self.mapView];
     
-    [self.mapView setZoomLevel:5.0f];
-    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(7.654857, -10.817015)];
+    [self.mapView setZoomLevel:MAPBOX_DEFAULT_ZOOM];
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(MAPBOX_DEFAULT_LATITUDE, MAPBOX_DEFAULT_LONGITUDE)];
     
     self.mapView.clipsToBounds = YES;
     [self.view bringSubviewToFront:self.circleView];

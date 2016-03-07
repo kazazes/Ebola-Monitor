@@ -1,0 +1,33 @@
+_prefs: 
+  disabled: []
+  inspector: false
+  mapid: kazazes.ed61d10b
+  rev: s-7d9466cb
+  saveCenter: true
+attribution: ''
+center: 
+  - -76.9482
+  - 24.8765
+  - 6
+description: ''
+Layer: 
+  - id: Import_3-3-2016
+    Datasource: 
+      file: /Users/pk/Dropbox/Zika monitoring/CSVs/Import_3-3-2016.csv
+      type: csv
+    description: Zika, March 3
+    fields: 
+      cases: Number
+      country: String
+      date: String
+      deaths: Number
+      latitude: Number
+      longitude: Number
+      notes: String
+      unconfirmed: Number
+    properties: 
+      "buffer-size": 0
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+maxzoom: 6
+minzoom: 0
+name: Zika 3-3

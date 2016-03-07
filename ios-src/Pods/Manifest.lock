@@ -20,33 +20,25 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CWStatusBarNotification (2.2.2)
-  - FlatUIKit (1.5)
-  - FMDB (2.3):
-    - FMDB/standard (= 2.3)
-  - FMDB/common (2.3)
-  - FMDB/standard (2.3):
-    - FMDB/common
-  - GRMustache (6.8.3):
-    - JRSwizzle (~> 1.0)
+  - CWStatusBarNotification (2.2.6)
+  - FlatUIKit (1.6.2)
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
   - ISO8601DateFormatter (0.7)
-  - JRSwizzle (1.0)
-  - MagicalRecord (2.2):
-    - MagicalRecord/Core (= 2.2)
-  - MagicalRecord/Core (2.2)
-  - Mapbox-iOS-SDK (1.4.1):
-    - FMDB (= 2.3)
-    - GRMustache (= 6.8.3)
-    - SMCalloutView (= 2.0)
-  - pop (1.0.7)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - Mapbox-iOS-SDK (3.1.2)
+  - pop (1.0.9)
   - Reachability (3.2)
-  - SMCalloutView (2.0)
-  - STTwitter (0.1.8)
+  - STTwitter (0.2.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4.1)
   - CWStatusBarNotification (~> 2.2.2)
   - FlatUIKit
+  - FMDB
   - ISO8601DateFormatter
   - MagicalRecord
   - Mapbox-iOS-SDK
@@ -55,18 +47,15 @@ DEPENDENCIES:
   - STTwitter
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  CWStatusBarNotification: 7e43716355830c26124eae9b91c4434dfa2a6a73
-  FlatUIKit: 5452fa3fca41e6f04014cca6e81b4c2f961f623c
-  FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
-  GRMustache: ab96109b7ba4b9568425bea40d6cd2cdc7582b6c
-  ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
-  JRSwizzle: 30da7a2c539a4ebf954b16d15f6dd8221c9f6fa5
-  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
-  Mapbox-iOS-SDK: f3c46afe1af0d8ea7863b33ba9e96d94606d4784
-  pop: 2f14a1ea61339767af9e66741b418c831b3844df
-  Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
-  SMCalloutView: c1906604d47c058400ade5c9d52ab98aa77b7e76
-  STTwitter: 15d299aeb63fe7aad6285d61dd058d0aaa778a82
+  AFNetworking: 41d45d2c14219af0fa5addf3cfd433a002c13c9f
+  CWStatusBarNotification: b7d08c63bbfcceee08b63cab041560a6f5cdefb6
+  FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
+  ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  Mapbox-iOS-SDK: 0a910c2cce1aa8cff5b9ec2a990e7a32332a776a
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  STTwitter: 77386cb6f1807fbfc0e321b9233bdecc9786195d
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0
