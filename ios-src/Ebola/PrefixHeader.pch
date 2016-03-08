@@ -1,17 +1,17 @@
 //
 //  PrefixHeader.pch
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 11/1/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
 //
 
-#ifndef Ebola_PrefixHeader_pch
-#define Ebola_PrefixHeader_pch
+#ifndef Outbreak_PrefixHeader_pch
+#define Outbreak_PrefixHeader_pch
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-#import "EbolaConfig.h"
+#import "OutbreakConfig.h"
 #import "UIView+Glow.h"
 #import <FlatUIKit/UIColor+FlatUI.h>
 #define MR_SHORTHAND

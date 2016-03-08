@@ -1,6 +1,6 @@
 //
 //  PrimaryViewController.m
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 10/9/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
@@ -12,7 +12,6 @@
 #import <Social/Social.h>
 #import <STTwitter/STTwitter.h>
 #import <Reachability/Reachability.h>
-#import "EbolaConfig.h"
 
 @interface PrimaryViewController ()
 
@@ -32,7 +31,7 @@
 }
 
 - (void)viewDidLoad {
-    UIBezierPath *path = [UIBezierPath ebolaShape];
+    UIBezierPath *path = [UIBezierPath skullShape];
     CBZSplashView *splashView = [CBZSplashView splashViewWithBezierPath:path backgroundColor:[UIColor pomegranateColor]];
     splashView.animationDuration = 1.4;
     splashView.iconStartSize = CGSizeMake(60 / 3, 65 / 3);
@@ -83,7 +82,7 @@
         [self.mapView setFrame:mapFrame];
         self.mapView.layer.cornerRadius = CGRectGetWidth(self.mapView.frame) / 2;
         [self.view bringSubviewToFront:self.mapView];
-        [[EbolaDataManager sharedEbolaDataManager] refreshOutbreakDatapoints];
+        [[OutbreakDataManager sharedOutbreakDataManager] refreshOutbreakDatapoints];
     } else {
         self.noConnectionView.hidden = NO;
     }
@@ -95,13 +94,13 @@
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
         
-        EbolaLocationManager *locationManager = [EbolaLocationManager sharedEbolaLocationManager];
+        OutbreakLocationManager *locationManager = [OutbreakLocationManager sharedOutbreakLocationManager];
         NSLocale *locale = [NSLocale currentLocale];
         BOOL isMetric = [[locale objectForKey:NSLocaleUsesMetricSystem] boolValue];
         
         if ([locationManager locationTrackingPermissionGranted]) {
             if ([locationManager location]) {
-                CLLocationDistance distanceInMeters = [[EbolaDataManager sharedEbolaDataManager] distanceFromOutbreakInMetersFromPoint:[[locationManager location] coordinate]];
+                CLLocationDistance distanceInMeters = [[OutbreakDataManager sharedOutbreakDataManager] distanceFromOutbreakInMetersFromPoint:[[locationManager location] coordinate]];
                 NSString *distanceUnitString;
                 if (isMetric) {
                     distanceUnitString = [NSString stringWithFormat:@"%.1f kilometers", distanceInMeters / 1000];
@@ -114,12 +113,12 @@
                         distanceUnitString = [NSString stringWithFormat:@"%.0f miles", distanceInMeters / METERS_IN_MILE];
                     }
                 }
-                [tweetSheet setInitialText:[NSString stringWithFormat:@"Ebola is %@ away from me! #ebolatracker", distanceUnitString]];
+                [tweetSheet setInitialText:[NSString stringWithFormat:@"%@ is %@ away from me! %@", DISEASE, distanceUnitString, APP_NAME_HASHTAG]];
             } else {
-                [tweetSheet setInitialText:@"Where's ebola? #ebolatracker"];
+                [tweetSheet setInitialText:[NSString stringWithFormat:@"Where's %@? %@", DISEASE_LOWER, APP_NAME_HASHTAG]];
             }
         } else {
-            [tweetSheet setInitialText:@"Where's ebola? #ebolatracker"];
+            [tweetSheet setInitialText:[NSString stringWithFormat:@"Where's %@? %@", DISEASE_LOWER, APP_NAME_HASHTAG]];
         }
         [self presentViewController:tweetSheet animated:YES completion:nil];
     } else {
@@ -187,7 +186,7 @@
         self.hasIntroed = YES;
     }
     
-    [[EbolaLocationManager sharedEbolaLocationManager] setHasFoundLocation:NO];
+    [[OutbreakLocationManager sharedOutbreakLocationManager] setHasFoundLocation:NO];
     [self viewWillTransitionToSize:[[UIScreen mainScreen] bounds].size withTransitionCoordinator:nil];
     [self centerMapOnMe];
     [self.circleView startGlowingWithColor:[UIColor emerlandColor] intensity:1.0f];
@@ -201,7 +200,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     [self.mapView removeAnnotations:self.mapView.annotations];
-    [[EbolaDataManager sharedEbolaDataManager] refreshOutbreakDatapoints];
+    [[OutbreakDataManager sharedOutbreakDataManager] refreshOutbreakDatapoints];
 }
 
 - (BOOL)mapMaximized {
@@ -218,7 +217,7 @@
     CGRect mapFrame;
     
     mapFrame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
-    self.mapView = [[EbolaMapView alloc] initWithFrame:mapFrame styleURL:[NSURL URLWithString:MAPBOX_STYLE]];
+    self.mapView = [[OutbreakMapView alloc] initWithFrame:mapFrame styleURL:[NSURL URLWithString:MAPBOX_STYLE]];
     self.mapView.layer.cornerRadius = 0;
     
     self.mapView.delegate = self.mapView;
@@ -311,18 +310,18 @@
             || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted) {
             [self presentLocationServicesError];
         } else {
-            [[EbolaLocationManager sharedEbolaLocationManager] requestAndUpdateLocation];
+            [[OutbreakLocationManager sharedOutbreakLocationManager] requestAndUpdateLocation];
         }
     }
 }
 
 - (IBAction)notificationButtonPushed:(id)sender {
-    [[EbolaDataManager sharedEbolaDataManager] requestPushNotificationPrivileges];
+    [[OutbreakDataManager sharedOutbreakDataManager] requestPushNotificationPrivileges];
 }
 
 - (void)setNotificationButtonToProperState {
     if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
-        [[EbolaDataManager sharedEbolaDataManager] requestPushNotificationPrivileges];
+        [[OutbreakDataManager sharedOutbreakDataManager] requestPushNotificationPrivileges];
     } else {
         [self.notificationButton setSelected:NO];
     }
@@ -391,8 +390,8 @@
 - (void)locationsUpdated:(NSNotification *)notification {
     self.lastStoredLocationDate = [NSDate date];
     
-    if (![[EbolaLocationManager sharedEbolaLocationManager] hasFoundLocation] && [[OutbreakDatapoint MR_findAll] count]) {
-        [[EbolaLocationManager sharedEbolaLocationManager] setHasFoundLocation:YES];
+    if (![[OutbreakLocationManager sharedOutbreakLocationManager] hasFoundLocation] && [[OutbreakDatapoint MR_findAll] count]) {
+        [[OutbreakLocationManager sharedOutbreakLocationManager] setHasFoundLocation:YES];
         [self centerInfectionAndLocationBoundingView];
         [self refreshStats];
     }
@@ -419,23 +418,23 @@
     if (status == kCLAuthorizationStatusNotDetermined || status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
         // set deselected
         self.locationButton.selected = NO;
-        [[EbolaLocationManager sharedEbolaLocationManager] setLocationTrackingPermissionGranted:NO];
-        [[EbolaLocationManager sharedEbolaLocationManager] setHasFoundLocation:NO];
+        [[OutbreakLocationManager sharedOutbreakLocationManager] setLocationTrackingPermissionGranted:NO];
+        [[OutbreakLocationManager sharedOutbreakLocationManager] setHasFoundLocation:NO];
     } else if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways) {
         // set selected
         self.locationButton.selected = YES;
         self.mapView.showsUserLocation = YES;
-        [[EbolaLocationManager sharedEbolaLocationManager] setLocationTrackingPermissionGranted:YES];
-        [[EbolaLocationManager sharedEbolaLocationManager] requestAndUpdateLocation];
+        [[OutbreakLocationManager sharedOutbreakLocationManager] setLocationTrackingPermissionGranted:YES];
+        [[OutbreakLocationManager sharedOutbreakLocationManager] requestAndUpdateLocation];
     }
 }
 
 - (void)centerMapOnMe {
-    if ([[EbolaLocationManager sharedEbolaLocationManager] locationTrackingPermissionGranted]) {
-        CLLocation *location = [[EbolaLocationManager sharedEbolaLocationManager] location];
+    if ([[OutbreakLocationManager sharedOutbreakLocationManager] locationTrackingPermissionGranted]) {
+        CLLocation *location = [[OutbreakLocationManager sharedOutbreakLocationManager] location];
         if (location) {
             [self.mapView setShowsUserLocation:YES];
-            double distance = [[EbolaDataManager sharedEbolaDataManager] distanceFromOutbreakInMetersFromPoint:location.coordinate];
+            double distance = [[OutbreakDataManager sharedOutbreakDataManager] distanceFromOutbreakInMetersFromPoint:location.coordinate];
             if (distance > 0 && distance / METERS_IN_MILE < 300) {
                 [self centerInfectionAndLocationBoundingView];
             } else {
@@ -446,11 +445,11 @@
 }
 
 - (void)centerInfectionAndLocationBoundingView {
-    if ([[EbolaLocationManager sharedEbolaLocationManager] locationTrackingPermissionGranted]) {
-        CLLocation *location = [[EbolaLocationManager sharedEbolaLocationManager] location];
+    if ([[OutbreakLocationManager sharedOutbreakLocationManager] locationTrackingPermissionGranted]) {
+        CLLocation *location = [[OutbreakLocationManager sharedOutbreakLocationManager] location];
         if (location) {
             [self.mapView showsUserLocation];
-            OutbreakDatapoint *closestOutbreak = [[EbolaDataManager sharedEbolaDataManager] nearestOutbreakToPoint:location.coordinate];
+            OutbreakDatapoint *closestOutbreak = [[OutbreakDataManager sharedOutbreakDataManager] nearestOutbreakToPoint:location.coordinate];
             if (closestOutbreak) {
                 CLLocationCoordinate2D closestCoordinate = CLLocationCoordinate2DMake([closestOutbreak.latitude floatValue], [closestOutbreak.longitude floatValue]);
                 

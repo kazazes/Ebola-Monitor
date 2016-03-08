@@ -1,6 +1,6 @@
 //
-//  EbolaMapView.h
-//  Ebola
+//  OutbreakMapView.h
+//  Outbreak
 //
 //  Created by Peter on 10/30/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
@@ -8,7 +8,7 @@
 
 @import Mapbox;
 
-@interface EbolaMapView : MGLMapView <MGLMapViewDelegate>
+@interface OutbreakMapView : MGLMapView <MGLMapViewDelegate>
 
 @property NSDate *lastMapMove;
 

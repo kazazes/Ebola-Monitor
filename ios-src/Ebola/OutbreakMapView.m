@@ -1,26 +1,26 @@
 //
-//  EbolaMapView.m
-//  Ebola
+//  OutbreakMapView.m
+//  Outbreak
 //
 //  Created by Peter on 10/30/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
 //
 
-#import "EbolaMapView.h"
+#import "OutbreakMapView.h"
 #import "LocalizedOutbreak.h"
-#import "EbolaDataManager.h"
+#import "OutbreakDataManager.h"
 #import "UIImage+Overlay.h"
 #import "UIImage+Extensions.h"
 #import "OutbreakAnnotation.h"
 
 const float COORDINATE_RANDOM_MODULUS = 0.0004f;
 
-@interface EbolaMapView ()
+@interface OutbreakMapView ()
 
 
 @end
 
-@implementation EbolaMapView
+@implementation OutbreakMapView
 
 /*
  // Only override drawRect: if you perform custom drawing.
@@ -51,7 +51,7 @@ const float COORDINATE_RANDOM_MODULUS = 0.0004f;
 
 - (void)updatedDatapoints:(NSNotification *)notification {
     __block NSMutableArray *annotationsArray = [NSMutableArray array];
-    NSArray *localizedData = [[EbolaDataManager sharedEbolaDataManager] getLocalizedOutbreaks];
+    NSArray *localizedData = [[OutbreakDataManager sharedOutbreakDataManager] getLocalizedOutbreaks];
     for (LocalizedOutbreak *l in localizedData) {
         // add randomized data at mass points
         int j = 0;

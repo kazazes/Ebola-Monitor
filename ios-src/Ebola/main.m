@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 10/9/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.

@@ -1,31 +1,31 @@
 //
-//  EbolaLocationManager.m
-//  Ebola
+//  OutbreakLocationManager.m
+//  Outbreak
 //
 //  Created by Peter on 11/10/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
 //
 
-#import "EbolaLocationManager.h"
-#import "EbolaDataManager.h"
+#import "OutbreakLocationManager.h"
+#import "OutbreakDataManager.h"
 
-@interface EbolaLocationManager ()
+@interface OutbreakLocationManager ()
 
 @property (nonatomic, strong) NSDate* lastUserDataSave;
 
 @end
 
-@implementation EbolaLocationManager
+@implementation OutbreakLocationManager
 
 @synthesize locationManager;
 @synthesize locationTrackingPermissionGranted;
 @synthesize hasFoundLocation;
 
-+ (EbolaLocationManager *)sharedEbolaLocationManager {
++ (OutbreakLocationManager *)sharedOutbreakLocationManager {
     static dispatch_once_t once;
-    static EbolaLocationManager *instance;
+    static OutbreakLocationManager *instance;
     dispatch_once(&once, ^{
-        instance = [[EbolaLocationManager alloc] init];
+        instance = [[OutbreakLocationManager alloc] init];
     });
     return instance;
 }

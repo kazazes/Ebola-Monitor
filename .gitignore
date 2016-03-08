@@ -23,3 +23,7 @@ node_modules/
 *.out
 
 ios-src/Ebola/EbolaConfig.h
+
+ios-src/Ebola/OutbreakConfig.h
+
+ios-src/Ebola/OutbreakConfig.h

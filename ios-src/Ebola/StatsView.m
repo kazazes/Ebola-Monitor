@@ -1,14 +1,14 @@
 //
 //  StatsView.m
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 11/5/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
 //
 
 #import "StatsView.h"
-#import "EbolaLocationManager.h"
-#import "EbolaDataManager.h"
+#import "OutbreakLocationManager.h"
+#import "OutbreakDataManager.h"
 #import <STTwitter/STTwitter.h>
 #import <TwitterKit/TwitterKit.h>
 #import "AppDelegate.h"
@@ -72,7 +72,7 @@
 }
 
 - (void)refreshDistanceLabel {
-    EbolaLocationManager *locationManager = [EbolaLocationManager sharedEbolaLocationManager];
+    OutbreakLocationManager *locationManager = [OutbreakLocationManager sharedOutbreakLocationManager];
     NSLocale *locale = [NSLocale currentLocale];
     BOOL isMetric = [[locale objectForKey:NSLocaleUsesMetricSystem] boolValue];
     
@@ -80,7 +80,7 @@
         if ([locationManager location]) {
             self.distanceLabel.hidden = NO;
             self.distanceButton.hidden = YES;
-            CLLocationDistance distanceInMeters = [[EbolaDataManager sharedEbolaDataManager] distanceFromOutbreakInMetersFromPoint:[[locationManager location] coordinate]];
+            CLLocationDistance distanceInMeters = [[OutbreakDataManager sharedOutbreakDataManager] distanceFromOutbreakInMetersFromPoint:[[locationManager location] coordinate]];
             NSString *distanceUnitString;
             if (isMetric) {
                 distanceUnitString = [NSString stringWithFormat:@"%.1f kilometers", distanceInMeters / 1000];
@@ -94,7 +94,7 @@
                 }
             }
             
-            NSString *distanceString = [NSString stringWithFormat:@"You are currently %@ from an Ebola case.", distanceUnitString];
+            NSString *distanceString = [NSString stringWithFormat:@"You are currently %@ from an %@ case.", distanceUnitString, DISEASE];
             self.distanceLabel.text = distanceString;
         }
     } else {
@@ -105,9 +105,9 @@
 }
 
 - (void)refreshMortalityLabels {
-    int deaths = [[EbolaDataManager sharedEbolaDataManager] totalDeaths];
-    int cases = [[EbolaDataManager sharedEbolaDataManager] totalCases];
-    int percentMortality = [[EbolaDataManager sharedEbolaDataManager] percentMortality];
+    int deaths = [[OutbreakDataManager sharedOutbreakDataManager] totalDeaths];
+    int cases = [[OutbreakDataManager sharedOutbreakDataManager] totalCases];
+    int percentMortality = [[OutbreakDataManager sharedOutbreakDataManager] percentMortality];
     
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -122,7 +122,7 @@
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
     if ([[OutbreakDatapoint MR_findAll] count] > 0) {
         self.lineGraph.hidden = NO;
-        int weeks = [[EbolaDataManager sharedEbolaDataManager] weeksWorthOfData];
+        int weeks = [[OutbreakDataManager sharedOutbreakDataManager] weeksWorthOfData];
         return weeks;
     } else {
         return 0;
@@ -131,9 +131,9 @@
 
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     if ([[OutbreakDatapoint MR_findAll] count] > 0) {
-        int cases = [[EbolaDataManager sharedEbolaDataManager] casesPerWeekWithIndex:[[NSNumber numberWithInteger:index] intValue]];
+        int cases = [[OutbreakDataManager sharedOutbreakDataManager] casesPerWeekWithIndex:[[NSNumber numberWithInteger:index] intValue]];
         if (cases == 0) {
-            cases = [[EbolaDataManager sharedEbolaDataManager] casesPerWeekWithIndex:[[NSNumber numberWithInteger:index - 1] intValue]];
+            cases = [[OutbreakDataManager sharedOutbreakDataManager] casesPerWeekWithIndex:[[NSNumber numberWithInteger:index - 1] intValue]];
         }
         return cases;
     } else {
@@ -143,7 +143,7 @@
 
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
     if ([[OutbreakDatapoint MR_findAll] count] > 0) {
-        int weeks = [[EbolaDataManager sharedEbolaDataManager] weeksWorthOfData];
+        int weeks = [[OutbreakDataManager sharedOutbreakDataManager] weeksWorthOfData];
         int intdex = [[NSNumber numberWithInteger:index] intValue];
         if (index != 0 && index != weeks - 1) {
             return [[NSNumber numberWithInt:weeks - intdex] stringValue];
@@ -295,7 +295,7 @@
 #pragma mark - Button handlers
 
 - (IBAction)distanceFromOutbreakPushed:(id)sender {
-    if ([[EbolaLocationManager sharedEbolaLocationManager] location]) {
+    if ([[OutbreakLocationManager sharedOutbreakLocationManager] location]) {
         [self refreshDistanceLabel];
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationPermissionsError" object:nil];

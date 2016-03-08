@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 10/9/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
@@ -8,10 +8,9 @@
 
 #import "AppDelegate.h"
 #import <TwitterKit/TwitterKit.h>
-#import "EbolaDataManager.h"
+#import "OutbreakDataManager.h"
 #import "OutbreakDatapoint.h"
 #import <Reachability/Reachability.h>
-#import "EbolaConfig.h"
 
 @import Mapbox;
 
@@ -49,7 +48,7 @@
     
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [[EbolaDataManager sharedEbolaDataManager] setDeviceToken:token];
+    [[OutbreakDataManager sharedOutbreakDataManager] setDeviceToken:token];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -68,7 +67,7 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [OutbreakDatapoint MR_truncateAll];
-    [[EbolaDataManager sharedEbolaDataManager] saveUserInfo];
+    [[OutbreakDataManager sharedOutbreakDataManager] saveUserInfo];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -79,7 +78,7 @@
                                     forKey:@"orientation"];
     });
     
-    [[EbolaDataManager sharedEbolaDataManager] refreshOutbreakDatapoints];
+    [[OutbreakDataManager sharedOutbreakDataManager] refreshOutbreakDatapoints];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -94,8 +93,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [[EbolaDataManager sharedEbolaDataManager] saveUserInfo];
-    [[EbolaDataManager sharedEbolaDataManager] logAllCases];
+    [[OutbreakDataManager sharedOutbreakDataManager] saveUserInfo];
+    [[OutbreakDataManager sharedOutbreakDataManager] logAllCases];
     [MagicalRecord cleanUp];
 }
 

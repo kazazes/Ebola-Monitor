@@ -1,6 +1,6 @@
 //
 //  UIImage+Overlay.m
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 10/31/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  OutbreakAnnotation.m
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 3/4/16.
 //  Copyright © 2016 Peter Kazazes. All rights reserved.

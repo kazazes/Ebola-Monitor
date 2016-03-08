@@ -1,6 +1,6 @@
 //
 //  UIBezierPath+Shapes.h
-//  Ebola
+//  Outbreak
 //
 //  Created by Peter on 11/13/14.
 //  Copyright (c) 2014 Peter Kazazes. All rights reserved.
@@ -10,6 +10,6 @@
 
 @interface UIBezierPath (Shapes)
 
-+ (instancetype)ebolaShape;
++ (instancetype)skullShape;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  EbolaDataManager.h
+//  OutbreakDataManager.h
 //  
 //
 //  Created by Peter on 11/1/14.
@@ -10,9 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "OutbreakDatapoint.h"
 
-@interface EbolaDataManager : NSObject
+@interface OutbreakDataManager : NSObject
 
-+ (EbolaDataManager *)sharedEbolaDataManager;
++ (OutbreakDataManager *)sharedOutbreakDataManager;
 - (void) refreshOutbreakDatapoints;
 - (void)logAllCases;
 - (NSArray *)getLocalizedOutbreaks;

@@ -1,34 +1,34 @@
 //
-//  EbolaDataManager.m
+//  OutbreakDataManager.m
 //
 //
 //  Created by Peter on 11/1/14.
 //
 //
 
-#import "EbolaDataManager.h"
+#import "OutbreakDataManager.h"
 #import <AFNetworking/AFNetworking.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import "LocalizedOutbreak.h"
-#import "EbolaLocationManager.h"
+#import "OutbreakLocationManager.h"
 #import "AppDelegate.h"
 #import <STTwitter/STTwitter.h>
 #import <Accounts/Accounts.h>
 
-@interface EbolaDataManager ()
+@interface OutbreakDataManager ()
 
 @property (nonatomic) long oldestEntry;
 
 @end
 
-@implementation EbolaDataManager
+@implementation OutbreakDataManager
 
-+ (EbolaDataManager *)sharedEbolaDataManager {
++ (OutbreakDataManager *)sharedOutbreakDataManager {
     static dispatch_once_t once;
-    static EbolaDataManager *instance;
+    static OutbreakDataManager *instance;
     dispatch_once(&once, ^{
-        instance = [[EbolaDataManager alloc] init];
+        instance = [[OutbreakDataManager alloc] init];
     });
     return instance;
 }
@@ -198,8 +198,8 @@
 }
 
 - (int)percentMortality {
-    int deaths = [[EbolaDataManager sharedEbolaDataManager] totalDeaths];
-    int cases = [[EbolaDataManager sharedEbolaDataManager] totalCases];
+    int deaths = [[OutbreakDataManager sharedOutbreakDataManager] totalDeaths];
+    int cases = [[OutbreakDataManager sharedOutbreakDataManager] totalCases];
     
     return (int)((double) deaths / (double)cases * 100);
 }

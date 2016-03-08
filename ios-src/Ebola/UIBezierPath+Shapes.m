@@ -10,7 +10,7 @@
 
 @implementation UIBezierPath (Shapes)
 
-+ (instancetype)ebolaShape
++ (instancetype)skullShape
 {
     UIBezierPath* path = UIBezierPath.bezierPath;
     [path moveToPoint: CGPointMake(73.4, 71.21)];
